@@ -1,0 +1,8 @@
+compiler building blocks: automated build scripts 
+-------------------------------------------------
+
+* a quick way to get started with cbb-gcc.
+* a quick way to get started with cross-compilation for the midipix targets.
+* pre-alpha, no fancy configurability... default locations are $HOME/midipix
+  for the toolchain, and $HOME/temp for the workdir. To use different
+  locations, please edit the script(s).
