@@ -1,9 +1,10 @@
 #!/bin/bash
-TARGET=x86_64-nt64-midipix
-ARCH=nt64
-PREFIX=$HOME/midipix
-WORKDIR=$HOME/temp
-MAKEFLAGS="-j8"
+[[ -z "$TARGET" ]] && TARGET=x86_64-nt64-midipix
+[[ -z "$ARCH" ]] && ARCH=nt64
+[[ -z "$PREFIX" ]] && PREFIX=$HOME/midipix
+[[ -z "$WORKDIR" ]] && WORKDIR=$HOME/temp
+[[ -z "$GITROOT" ]] && GITROOT=git://midipix.org
+MAKEFLAGS="-j8 $MAKEFLAGS"
 
 BINUTILS=2.24.51
 GCC=4.6.4
@@ -43,11 +44,11 @@ export PATH="$PREFIX/bin:$PATH"
 
 
 # Git clone what we need.
-fetch_git portage      git://midipix.org/ports/portage
-fetch_git cbb-gcc-$GCC git://midipix.org/cbb/cbb-gcc-$GCC
-fetch_git mmglue       git://midipix.org/mmglue
-fetch_git psxstub      git://midipix.org/psxstub
-fetch_git lazy         git://midipix.org/lazy
+fetch_git portage      $GITROOT/ports/portage
+fetch_git cbb-gcc-$GCC $GITROOT/cbb/cbb-gcc-$GCC
+fetch_git mmglue       $GITROOT/mmglue
+fetch_git psxstub      $GITROOT/psxstub
+fetch_git lazy         $GITROOT/lazy
 
 
 # Binutils.
